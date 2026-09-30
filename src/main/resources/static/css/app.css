@@ -674,7 +674,7 @@ a { color: inherit; }
 .uml-tela { background: #fff; }
 .uml-legenda { font-size: 14px; color: #3a3a3c; line-height: 1.5; padding: 0 20px 10px; margin: 0; }
 .uml-caixa { overflow: auto; margin: 0 12px 20px; border-radius: 14px; border: 1px solid #e5e7eb; background: #fff; }
-.uml-caixa img { display: block; width: 900px; max-width: none; transition: width .2s; }
+.uml-caixa img { display: block; max-width: none; height: auto; }
 .uml-zoom { display: flex; gap: 8px; padding: 0 16px 10px; }
 .uml-zoom button { padding: 6px 12px; border-radius: 8px; background: #f2f2f7; font-weight: 600; font-size: 14px; }
 .chips-uml { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 20px 12px; }
@@ -720,4 +720,4 @@ a { color: inherit; }
 .uml-legenda code { font-family: var(--mono); font-size: .9em; }
 .botao-palco svg, .links-palco svg { fill: currentColor; }
 .entrando .encerrar-chamada { margin-top: 0; }
-.ilha.expandida { width: 176px; }
+.ilha.expandida { width: 152px; }

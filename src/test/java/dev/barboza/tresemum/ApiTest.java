@@ -201,6 +201,17 @@ class ApiTest {
     }
 
     @Test
+    void siteServidoComPoliticaDeSeguranca() throws Exception {
+        mvc.perform(get("/index.html"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(org.hamcrest.Matchers.containsString("em Um</title>")))
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.header()
+                        .string("Content-Security-Policy", org.hamcrest.Matchers.containsString("script-src 'self'")))
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.header()
+                        .string("X-Content-Type-Options", "nosniff"));
+    }
+
+    @Test
     void saudeEDocumentacao() throws Exception {
         mvc.perform(get("/health")).andExpect(status().isOk()).andExpect(jsonPath("$.status").value("UP"));
         mvc.perform(get("/v3/api-docs")).andExpect(status().isOk())

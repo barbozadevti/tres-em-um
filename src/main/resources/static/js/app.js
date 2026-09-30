@@ -275,7 +275,8 @@ function visualizador() {
       const largura = canvas.width / niveis.length;
       g.fillStyle = "rgba(255,255,255,.55)";
       niveis.forEach((v, i) => {
-        const h = Math.max(3, v * canvas.height);
+        if (v < 0.02) return;
+        const h = v * canvas.height;
         g.fillRect(i * largura + 2, canvas.height - h, largura - 4, h);
       });
     }
