@@ -1,0 +1,105 @@
+classDiagram
+    direction TB
+
+    class ReprodutorMusical {
+        <<interface>>
+        +tocar() void
+        +pausar() void
+        +selecionarMusica(musica: String) void
+        +proxima() void
+        +anterior() void
+    }
+
+    class AparelhoTelefonico {
+        <<interface>>
+        +ligar(numero: String) void
+        +atender() void
+        +iniciarCorreioVoz() void
+        +recusar() void
+        +encerrar() void
+    }
+
+    class NavegadorInternet {
+        <<interface>>
+        +exibirPagina(url: String) void
+        +adicionarNovaAba() void
+        +atualizarPagina() void
+        +voltar() void
+        +avancar() void
+    }
+
+    class IPhone {
+        -musicaInterrompida: boolean
+        +tocarMusica(musica: String) void
+        +receberChamada(numero: String) void
+        +sincronizar() void
+    }
+
+    class IPod
+
+    class Reprodutor {
+        -fila: List~Faixa~
+        -estado: Estado
+        -repeticao: Repeticao
+        -aleatorio: boolean
+        +buscar(ponto: Duration) void
+        +alternarAleatorio() void
+        +alternarRepeticao() void
+        +posicao() Duration
+    }
+
+    class Telefone {
+        -atual: Chamada
+        -recentes: List~Chamada~
+        -recados: List~Recado~
+        +receberChamada(numero: String) void
+        +ouvirRecado(id: long) void
+        +alternarMudo() void
+    }
+
+    class Navegador {
+        -abas: List~Aba~
+        -favoritos: Set~String~
+        +adicionarAbaPrivada() void
+        +fecharAba(id: int) void
+        +alternarFavorito() void
+    }
+
+    class Faixa {
+        <<record>>
+        +duracao() Duration
+    }
+
+    class Chamada {
+        -estado: Estado
+        -direcao: Direcao
+        -desfecho: Desfecho
+        +duracao(agora: Instant) Duration
+    }
+
+    class Aba {
+        -historico: List~String~
+        -privada: boolean
+        +podeVoltar() boolean
+        +podeAvancar() boolean
+    }
+
+    class Rastreador {
+        +rastrear(papel: Class, alvo: T, rastro: Rastro)$ T
+    }
+
+    ReprodutorMusical <|.. IPhone
+    AparelhoTelefonico <|.. IPhone
+    NavegadorInternet <|.. IPhone
+    ReprodutorMusical <|.. IPod
+    ReprodutorMusical <|.. Reprodutor
+    AparelhoTelefonico <|.. Telefone
+    NavegadorInternet <|.. Navegador
+    IPhone *-- Reprodutor
+    IPhone *-- Telefone
+    IPhone *-- Navegador
+    IPod *-- Reprodutor
+    Reprodutor o-- Faixa
+    Telefone *-- Chamada
+    Navegador *-- Aba
+    IPhone ..> Rastreador : envolve os papéis
