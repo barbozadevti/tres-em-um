@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Três em Um</title>
+  <meta name="description" content="Um iPod, um telefone e um navegador em um só aparelho: o iPhone modelado em UML, com o domínio em Java 21 e Spring Boot.">
+  <meta name="theme-color" content="#07080d">
+  <link rel="icon" href="img/icone.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/app.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <div class="palco">
+    <aside class="lateral lateral-esquerda" id="apresentacao" aria-label="Sobre o projeto"></aside>
+
+    <main class="centro" aria-label="Simulador do iPhone">
+      <div class="moldura-escala" id="moldura-escala">
+        <div class="aparelho" id="aparelho">
+          <span class="botao-lateral botao-acao" aria-hidden="true"></span>
+          <span class="botao-lateral botao-volume-mais" aria-hidden="true"></span>
+          <span class="botao-lateral botao-volume-menos" aria-hidden="true"></span>
+          <span class="botao-lateral botao-energia" aria-hidden="true"></span>
+          <div class="tela" id="tela">
+            <div class="barra-status" id="barra-status"></div>
+            <button class="ilha" id="ilha" type="button" aria-label="Atividade em andamento"></button>
+            <div class="conteudo" id="conteudo"></div>
+            <div class="sobreposicao" id="sobreposicao"></div>
+            <button class="indicador-inicio" id="indicador-inicio" type="button" aria-label="Voltar para a tela de início"></button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="lateral lateral-direita" id="por-dentro" aria-label="Por dentro: chamadas de método"></aside>
+  </div>
+  <div class="avisos" id="avisos" role="status" aria-live="polite"></div>
+</body>
+</html>

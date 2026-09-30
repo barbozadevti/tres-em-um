@@ -80,13 +80,14 @@ public final class Respostas {
 
     public record ChamadaResposta(long id, String numero, String nome, String contato, String cor, String direcao,
                                   String estado, String desfecho, Instant inicio, double duracao,
-                                  boolean mudo, boolean vivaVoz, boolean emergencia) {
+                                  boolean mudo, boolean vivaVoz, boolean emergencia, String tons) {
 
         static ChamadaResposta de(Chamada c, Instant agora) {
             return new ChamadaResposta(c.getId(), c.getNumero().formatado(), c.nomeOuNumero(),
                     c.getContato().map(Contato::id).orElse(null), c.getContato().map(Contato::cor).orElse(null),
                     c.getDirecao().name(), c.getEstado().name(), c.getDesfecho().map(Chamada.Desfecho::nome).orElse(null),
-                    c.getInicio(), segundos(c.duracao(agora)), c.isMudo(), c.isVivaVoz(), c.getNumero().emergencia());
+                    c.getInicio(), segundos(c.duracao(agora)), c.isMudo(), c.isVivaVoz(), c.getNumero().emergencia(),
+                    c.getTons());
         }
     }
 

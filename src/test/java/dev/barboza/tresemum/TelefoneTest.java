@@ -193,6 +193,13 @@ class TelefoneTest {
     }
 
     @Test
+    void servicoComo190NaoDeixaRecado() {
+        telefone.receberChamada("190");
+        telefone.recusar();
+        assertThat(telefone.getRecados()).isEmpty();
+    }
+
+    @Test
     void naoAtendeNemRecusaSemChamadaTocando() {
         assertThatThrownBy(telefone::atender).isInstanceOf(EstadoInvalidoException.class);
         telefone.ligar("190");

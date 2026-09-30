@@ -199,6 +199,9 @@ public class Telefone implements AparelhoTelefonico {
     }
 
     private void deixarRecado(Chamada chamada, Instant quando) {
+        if (chamada.getNumero().digitos().length() == 3) {
+            return; // serviços como 190 não deixam recado
+        }
         String quem = chamada.getContato().map(c -> "Oi, aqui é " + primeiroNome(c) + ". ").orElse("Oi, tudo bem? ");
         String texto = quem + RECADOS.get((int) (chamada.getId() % RECADOS.size()));
         recados.addFirst(new Recado(++sequencia, chamada.getNumero(), chamada.nomeOuNumero(), quando.plusSeconds(30), texto));
