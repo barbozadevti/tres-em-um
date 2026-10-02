@@ -1,0 +1,10 @@
+# Deploy em um clique no Render: New > Blueprint > aponte para este repositório.
+services:
+  - type: web
+    name: tres-em-um
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: "5260"
